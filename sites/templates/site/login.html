@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<h3>{{ msg }}</h3>
+
+<form action="" method="post" novalidate> {% csrf_token %}
+
+
+    <!--{{ form.as_p }}-->
+    {{ form|crispy }}
+    <!--{{ form.as_crispy }}-->
+      <input type = "submit" value="Login" class="btn btn-success">
+</form>
+{% endblock %}
+

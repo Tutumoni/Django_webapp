@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!--<img src="https://cdn.theatlantic.com/assets/media/img/mt/2017/10/Pict1_Ursinia_calendulifolia/lead_720_405.jpg?mod=1533691909" width="50%"></img>-->
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+          <th>ID</th>
+        <th>College Name</th>
+        <th>College Email</th>
+
+        <th>Address</th>
+          <th>City</th>
+          <th>Action</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+      <tr>
+
+         <td>{{i.id}}</td>
+        <td>{{i.college_name}}</td>
+          <td>{{i.college_email}}</td>
+          <td>{{i.college_address}}</td>
+          <td>{{i.college_city }}</td>
+          <td>
+              <span class="btn btn-info btn-xs"><a href="view?id={{i.id}}" target="_blank">view</a></span>
+              <span class="btn btn-success btn-xs"><a href="update?id={{i.id}}">Update</a></span>
+              <span class="btn btn-warning btn-xs"><a onclick="return deleteItem()" href="delete?id={{i.id}}">delete</a></span>
+          </td>
+    {% endfor %}
+      </tr>
+
+    </tbody>
+  </table>
+
+<script>
+    function deleteItem(){
+
+        if (confirm("sure?")){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+</script>
+{% endblock %}

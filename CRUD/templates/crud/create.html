@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<h3>COLLEGE</h3>
+
+<form action="" method="post" novalidate> {% csrf_token %}
+
+
+    <!--{{ form.as_p }}-->
+    {{ form|crispy }}
+    <!--{{ form.as_crispy }}-->
+      <input type = "submit" value="submit">
+</form>
+{% endblock %}
